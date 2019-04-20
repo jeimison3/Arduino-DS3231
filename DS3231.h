@@ -26,6 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #else
 #include "WProgram.h"
 #endif
+#include "Wire.h"
 
 #define DS3231_ADDRESS              (0x68)
 
@@ -90,7 +91,7 @@ class DS3231
 {
     public:
 
-	bool begin(void);
+	bool begin(TwoWire* InTWire);
 
 	void setDateTime(uint16_t year, uint8_t month, uint8_t day, uint8_t hour, uint8_t minute, uint8_t second);
 	void setDateTime(uint32_t t);
@@ -130,6 +131,7 @@ class DS3231
 	char* dateFormat(const char* dateFormat, RTCAlarmTime dt);
 
     private:
+    TwoWire* TWire;
 	RTCDateTime t;
 
 	char *strDayOfWeek(uint8_t dayOfWeek);

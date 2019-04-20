@@ -5,6 +5,10 @@ DS3231 Real-Time Clock.
 
 ![DS3231](http://www.jarzebski.pl/media/big/publish/2014/04/ds3231-dateformat.png)
 
+External I2C using
+----------------
+With tih library you can use `.begin(*TwoWire);`, being compatible with ESP32 setting pins and other kind of utility.
+
 I need your help
 ----------------
 
